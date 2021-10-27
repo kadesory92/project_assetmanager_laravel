@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Asset, Category};
+use App\Models\Asset;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class AssetController extends Controller
@@ -12,9 +13,9 @@ class AssetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($slug = null)
+    public function index()
     {
-        $assets = Asset::all();
+        $assets = Asset::with(['category', 'user'])->get();
 
         return view('assets.index', compact('assets'));
         //

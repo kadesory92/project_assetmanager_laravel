@@ -9,18 +9,8 @@
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
                 <a href="{{ route('assets.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add Assets</a>
-                
-                <label class="block text-left" style="max-width: 400px">
-                    <span class="text-gray-700">Select</span>
-                    <select class="form-select block w-full mt-1">
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                    </select>
-                </label>
             </div>
-            <div class="block mb-8 ml-80">
-
-            </div>
+    
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -31,8 +21,14 @@
                                     <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         ID
                                     </th>
+                                    <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Category
+                                    </th>
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Name
+                                    </th>
+                                    <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Owner
                                     </th>
                                     <th scope="col" width="200" class="px-6 py-3 bg-gray-50">
                                         Actions
@@ -47,7 +43,15 @@
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                {{ $asset->category->name }}
+                                            </td>
+
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                 {{ $asset->name }}
+                                            </td>
+
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                {{ $asset->user->name }}
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
